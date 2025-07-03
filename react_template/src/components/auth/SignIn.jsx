@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
 const SignIn = ({ onClose }) => {
@@ -13,7 +12,6 @@ const SignIn = ({ onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { signIn } = useAuth();
-  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -40,9 +38,7 @@ const SignIn = ({ onClose }) => {
     setIsLoading(true);
     try {
       await signIn(formData.email, formData.password);
-      // Close the modal and navigate to dashboard after successful sign-in
       onClose();
-      navigate('/dashboard');
     } catch (error) {
       setErrors({ submit: error.message });
     } finally {

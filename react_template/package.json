@@ -3,13 +3,7 @@
   "private": false,
   "version": "1.0.0",
   "description": "A comprehensive health and wellness application for meal planning, symptom tracking, and educational resources",
-  "keywords": [
-    "health",
-    "wellness",
-    "meal-planning",
-    "react",
-    "vite"
-  ],
+  "keywords": ["health", "wellness", "meal-planning", "react", "vite"],
   "author": "Your Name",
   "license": "MIT",
   "type": "module",
@@ -34,8 +28,6 @@
     "@emotion/styled": "^11.13.0",
     "@heroicons/react": "^2.2.0",
     "@mui/material": "^6.0.2",
-    "@stripe/react-stripe-js": "^3.7.0",
-    "@stripe/stripe-js": "^7.4.0",
     "@supabase/supabase-js": "^2.47.12",
     "@types/prop-types": "^15.7.14",
     "date-fns": "^4.1.0",

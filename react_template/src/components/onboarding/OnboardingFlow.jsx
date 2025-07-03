@@ -21,13 +21,6 @@ const OnboardingFlow = ({ onComplete }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const lastDataRef = useRef({});
 
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, []);
-
   const steps = [
     {
       id: 'profile',

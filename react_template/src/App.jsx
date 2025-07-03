@@ -5,14 +5,12 @@ import { SupabaseAppProvider } from './contexts/SupabaseAppContext';
 import { AppProvider } from './contexts/AppContext';
 import { HeadsUpProvider } from './contexts/HeadsUpContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
-import { SubscriptionProvider } from './contexts/SubscriptionContext';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import AuthModal from './components/auth/AuthModal';
 import OnboardingFlow from './components/onboarding/OnboardingFlow';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import MealPlan from './pages/MealPlan';
-import FAQ from './pages/FAQ';
 import MealDetail from './pages/MealDetail';
 import EditDietaryPreferences from './pages/EditDietaryPreferences';
 import MyFavorites from './pages/MyFavorites';
@@ -23,7 +21,6 @@ import Community from './pages/Community';
 import EducationalResources from './pages/EducationalResources';
 import OfflineResources from './pages/OfflineResources';
 import Bookmarks from './pages/Bookmarks';
-import SubscriptionPage from './pages/SubscriptionPage';
 import { useAuth } from './hooks/useAuth';
 
 function AppContent() {
@@ -56,10 +53,14 @@ function AppContent() {
           <Route 
             path="/" 
             element={
-              <LandingPage 
-                onAuthClick={openAuthModal}
-                isAuthenticated={isAuthenticated}
-              />
+              isAuthenticated || localStorage.getItem('demo_mode') ? (
+                isOnboarded || localStorage.getItem('demo_mode') ? <Navigate to="/dashboard" /> : <Navigate to="/onboarding" />
+              ) : (
+                <LandingPage 
+                  onAuthClick={openAuthModal}
+                  isAuthenticated={isAuthenticated}
+                />
+              )
             } 
           />
           
@@ -189,16 +190,6 @@ function AppContent() {
               </ProtectedRoute>
             } 
           />
-          
-          <Route 
-            path="/subscription" 
-            element={<SubscriptionPage />} 
-          />
-
-          <Route 
-            path="/faq" 
-            element={<FAQ />} 
-          />
 
           {/* Catch-all route */}
           <Route 
@@ -222,13 +213,11 @@ function App() {
     <AuthProvider>
       <SupabaseAppProvider>
         <AppProvider>
-          <SubscriptionProvider>
-            <HeadsUpProvider>
-              <FavoritesProvider>
+          <HeadsUpProvider>
+            <FavoritesProvider>
               <AppContent />
-              </FavoritesProvider>
-            </HeadsUpProvider>
-          </SubscriptionProvider>
+            </FavoritesProvider>
+          </HeadsUpProvider>
         </AppProvider>
       </SupabaseAppProvider>
     </AuthProvider>
