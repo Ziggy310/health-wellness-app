@@ -1,0 +1,82 @@
+sequenceDiagram
+    participant User
+    participant UI as UI Components
+    participant AC as AuthContext
+    participant AS as AuthService
+    participant FA as Firebase Auth
+    participant API as Backend API
+    participant FS as Firestore
+    
+    %% Registration Flow
+    User->>UI: Fill registration form
+    UI->>AC: signup(email, password, displayName)
+    AC->>AS: register(email, password, displayName)
+    AS->>FA: createUserWithEmailAndPassword(email, password)
+    FA-->>AS: Return UserCredential
+    AS->>FA: updateProfile({ displayName })
+    FA-->>AS: Profile updated
+    AS->>FA: getIdToken()
+    FA-->>AS: Return idToken
+    AS->>API: register(idToken, email, displayName)
+    API->>FS: Create user document
+    FS-->>API: Document created
+    API-->>AS: Return success response
+    AS-->>AC: Return user data
+    AC-->>UI: Update auth state
+    UI-->>User: Redirect to dashboard
+    
+    %% Login Flow
+    User->>UI: Fill login form
+    UI->>AC: login(email, password)
+    AC->>AS: login(email, password)
+    AS->>FA: signInWithEmailAndPassword(email, password)
+    FA-->>AS: Return UserCredential
+    AS->>FA: getIdToken()
+    FA-->>AS: Return idToken
+    AS->>API: login(idToken)
+    API->>FS: Get user document
+    FS-->>API: Return user data
+    API-->>AS: Return user data with token
+    AS-->>AC: Update auth state
+    AC-->>UI: Redirect to intended page
+    UI-->>User: Show dashboard or intended page
+    
+    %% Password Reset Flow
+    User->>UI: Request password reset
+    UI->>AC: resetPassword(email)
+    AC->>AS: resetPassword(email)
+    AS->>API: resetPassword(email)
+    API->>FA: sendPasswordResetEmail(email)
+    FA-->>API: Email sent
+    API-->>AS: Return success
+    AS-->>AC: Return success
+    AC-->>UI: Show success message
+    UI-->>User: Display "Check your email" message
+    
+    %% Update Profile Flow
+    User->>UI: Fill profile update form
+    UI->>AC: updateProfile(profileData)
+    AC->>AS: updateProfile(profileData)
+    AS->>FA: updateProfile(profileData)
+    FA-->>AS: Profile updated
+    AS->>API: updateProfile(profileData)
+    API->>FS: Update user document
+    FS-->>API: Document updated
+    API-->>AS: Return updated user data
+    AS-->>AC: Update auth state
+    AC-->>UI: Show success message
+    UI-->>User: Display updated profile
+    
+    %% Delete Account Flow
+    User->>UI: Request account deletion
+    UI->>AC: deleteAccount()
+    AC->>AS: deleteAccount()
+    AS->>API: deleteAccount()
+    API->>FS: Mark user as deleted
+    FS-->>API: User marked as deleted
+    API->>FA: deleteUser()
+    FA-->>API: User deleted
+    API-->>AS: Return success
+    AS-->>AC: Clear auth state
+    AC-->>UI: Redirect to landing page
+    UI-->>User: Show landing page

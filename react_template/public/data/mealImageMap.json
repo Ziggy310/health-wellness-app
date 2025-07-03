@@ -1,0 +1,74 @@
+{
+  "Greek Yogurt with Berries and Flaxseeds": {
+    "slug": "greek-yogurt-with-berries-and-flaxseeds",
+    "thumbnail": "/assets/images/meals/real/greek-yogurt-with-berries.jpg",
+    "header": "/assets/images/meals/real/greek-yogurt-with-berries-large.jpg",
+    "alt": "Greek Yogurt with Berries and Flaxseeds"
+  },
+  "Mediterranean Yogurt Bowl": {
+    "slug": "mediterranean-yogurt-bowl",
+    "thumbnail": "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Mediterranean Yogurt Bowl"
+  },
+  "Spinach and Mushroom Omelette": {
+    "slug": "spinach-and-mushroom-omelette",
+    "thumbnail": "https://images.unsplash.com/photo-1510693206972-df098062cb71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1510693206972-df098062cb71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Spinach and Mushroom Omelette"
+  },
+  "Overnight Chia Pudding": {
+    "slug": "overnight-chia-pudding",
+    "thumbnail": "https://images.unsplash.com/photo-1583269785229-55574474332e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1583269785229-55574474332e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Overnight Chia Pudding"
+  },
+  "Avocado Toast with Poached Egg": {
+    "slug": "avocado-toast-with-poached-egg",
+    "thumbnail": "/assets/images/meals/real/avocado-toast-with-egg.jpg",
+    "header": "/assets/images/meals/real/avocado-toast-with-egg.jpg",
+    "alt": "Avocado Toast with Poached Egg"
+  },
+  "Berry Smoothie Bowl": {
+    "slug": "berry-smoothie-bowl",
+    "thumbnail": "https://images.unsplash.com/photo-1504310578167-435ac09e69f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1504310578167-435ac09e69f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Berry Smoothie Bowl"
+  },
+  "Whole Grain Pancakes with Berries": {
+    "slug": "whole-grain-pancakes-with-berries",
+    "thumbnail": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Whole Grain Pancakes with Berries"
+  },
+  "Vegetable Frittata": {
+    "slug": "vegetable-frittata",
+    "thumbnail": "https://images.unsplash.com/photo-1568625365131-079e026a927d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1568625365131-079e026a927d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Vegetable Frittata"
+  },
+  "Mediterranean Quinoa Salad": {
+    "slug": "mediterranean-quinoa-salad",
+    "thumbnail": "/assets/images/meals/real/mediterranean-quinoa-salad.jpg",
+    "header": "/assets/images/meals/real/mediterranean-quinoa-salad-large.jpg",
+    "alt": "Mediterranean Quinoa Salad"
+  },
+  "Lentil Soup with Mixed Greens": {
+    "slug": "lentil-soup-with-mixed-greens",
+    "thumbnail": "https://images.unsplash.com/photo-1583608205442-71b8677566eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1583608205442-71b8677566eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Lentil Soup with Mixed Greens"
+  },
+  "Chickpea and Avocado Wrap": {
+    "slug": "chickpea-and-avocado-wrap",
+    "thumbnail": "https://images.unsplash.com/photo-1600850056064-a8b380df8395?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1600850056064-a8b380df8395?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Chickpea and Avocado Wrap"
+  },
+  "Salmon Poke Bowl": {
+    "slug": "salmon-poke-bowl",
+    "thumbnail": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "header": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "alt": "Salmon Poke Bowl"
+  }
+}

@@ -1,0 +1,118 @@
+classDiagram
+    class User {
+        +string uid
+        +string email
+        +string displayName
+        +string subscriptionTier
+        +Date subscriptionExpiryDate
+        +boolean isActive
+        +boolean emailVerified
+    }
+    
+    class AuthService {
+        +register(email, password, displayName) Promise~UserCredential~
+        +login(email, password) Promise~UserCredential~
+        +logout() Promise~void~
+        +resetPassword(email) Promise~void~
+        +verifyEmail() Promise~void~
+        +updateProfile(data) Promise~void~
+        +deleteAccount() Promise~void~
+        +getCurrentUser() User
+    }
+    
+    class AuthContext {
+        +User currentUser
+        +boolean isLoading
+        +string error
+        +signup(email, password, displayName) Promise~void~
+        +login(email, password) Promise~void~
+        +logout() Promise~void~
+        +resetPassword(email) Promise~void~
+        +updateProfile(data) Promise~void~
+        +verifyEmail() Promise~void~
+        +deleteAccount() Promise~void~
+    }
+    
+    class AuthProvider {
+        -AuthService authService
+        -User currentUser
+        -boolean isLoading
+        -string error
+        +signup(email, password, displayName) Promise~void~
+        +login(email, password) Promise~void~
+        +logout() Promise~void~
+        +resetPassword(email) Promise~void~
+        +updateProfile(data) Promise~void~
+        +verifyEmail() Promise~void~
+        +deleteAccount() Promise~void~
+    }
+    
+    class LoginPage {
+        -string email
+        -string password
+        -string error
+        -boolean isLoading
+        +handleSubmit(event) void
+    }
+    
+    class SignUpPage {
+        -string email
+        -string password
+        -string confirmPassword
+        -string displayName
+        -string error
+        -boolean isLoading
+        +handleSubmit(event) void
+    }
+    
+    class ResetPasswordPage {
+        -string email
+        -string message
+        -string error
+        -boolean isLoading
+        +handleSubmit(event) void
+    }
+    
+    class AccountManagementPage {
+        -string displayName
+        -string message
+        -string error
+        -boolean isLoading
+        +handleUpdateProfile(event) void
+        +handleVerifyEmail() void
+        +handleDeleteAccount() void
+    }
+    
+    class ProtectedRoute {
+        +render(props) Component
+    }
+    
+    class FirebaseAuth {
+        <<external>>
+        +createUserWithEmailAndPassword(email, password) Promise~UserCredential~
+        +signInWithEmailAndPassword(email, password) Promise~UserCredential~
+        +signOut() Promise~void~
+        +sendPasswordResetEmail(email) Promise~void~
+        +sendEmailVerification() Promise~void~
+        +updateProfile(profile) Promise~void~
+        +deleteUser() Promise~void~
+        +onAuthStateChanged(callback) Unsubscribe
+    }
+    
+    class BackendAPI {
+        +register(idToken, email, displayName) Promise~Response~
+        +login(idToken) Promise~Response~
+        +resetPassword(email) Promise~Response~
+        +updateProfile(data) Promise~Response~
+        +deleteAccount() Promise~Response~
+    }
+    
+    AuthProvider -- AuthContext : implements
+    AuthProvider -- AuthService : uses
+    AuthService -- FirebaseAuth : uses
+    AuthService -- BackendAPI : uses
+    LoginPage -- AuthContext : uses
+    SignUpPage -- AuthContext : uses
+    ResetPasswordPage -- AuthContext : uses
+    AccountManagementPage -- AuthContext : uses
+    ProtectedRoute -- AuthContext : uses
