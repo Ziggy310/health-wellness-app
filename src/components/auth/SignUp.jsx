@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
 const SignUp = ({ onClose }) => {
@@ -15,7 +16,8 @@ const SignUp = ({ onClose }) => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const { signUp } = useAuth();
+  const { signUp, isOnboarded } = useAuth();
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -56,8 +58,20 @@ const SignUp = ({ onClose }) => {
         lastName: formData.lastName
       });
       
-      // Close the modal immediately after successful signup
+      // Close the modal and navigate based on onboarding status
       onClose();
+      
+      // Small delay to allow auth context to update
+      setTimeout(() => {
+        // New users need onboarding, existing users go to dashboard
+        navigate('/onboarding');
+        // Ensure page scrolls to top after navigation
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }, 50);
+      }, 100);
       
     } catch (error) {
       setErrors({ submit: error.message });

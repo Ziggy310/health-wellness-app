@@ -6,8 +6,6 @@ import NewPostModal from '../components/community/NewPostModal';
 import Layout from '../components/common/Layout';
 import { PostCategory, PostTopic, SymptomCategory } from '../utils/types';
 
-//test
-
 const Community = () => {
   const { user, isLoading } = useAppContext();
   const [posts, setPosts] = useState([]);
