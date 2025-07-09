@@ -178,7 +178,7 @@ const LandingPage = ({ onAuthClick }) => {
           <div 
             className="w-full h-full bg-cover bg-center" 
             style={{ 
-              backgroundImage: `url('/assets/images/meno-plus-splash.jpg')`,
+              backgroundImage: `url('/hero.jpg')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               filter: 'brightness(0.3)'
