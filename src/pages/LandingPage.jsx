@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppContext } from '../contexts/AppContext';
 import AuthModal from '../components/auth/AuthModal';
+import heroImage from '../assets/hero.jpg';  
+
+
 
 const LandingPage = ({ onAuthClick }) => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -175,7 +178,10 @@ const LandingPage = ({ onAuthClick }) => {
       {/* Hero Section with semi-transparent background image */}
       <header className="relative py-16 overflow-hidden">
       <div className="absolute inset-0 z-0">
-  <div className="w-full h-full bg-[url('/hero.jpg')] bg-cover bg-center brightness-50"></div>
+ <div
+  className="w-full h-full bg-cover bg-center brightness-50"
+  style={{ backgroundImage: `url(${heroImage})` }}
+></div>
 </div>
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           {/* Logo/Brand */}
