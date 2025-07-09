@@ -44,7 +44,7 @@ const SplashScreenEnhanced = () => {
       {/* User-provided background image for splash screen */}
       <div className="absolute inset-0 opacity-30">
         <img
-          src="/assets/images/meno-plus-splash.jpg"
+          src="/hero.jpg"
           alt="Meno+ Splash Image"
           className={`w-full h-full object-cover transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           onLoad={handleImageLoad}
