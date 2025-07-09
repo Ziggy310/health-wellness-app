@@ -174,17 +174,9 @@ const LandingPage = ({ onAuthClick }) => {
       </nav>
       {/* Hero Section with semi-transparent background image */}
       <header className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center" 
-            style={{ 
-              backgroundImage: `url('/hero.jpg')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'brightness(0.3)'
-            }}
-          ></div>
-        </div>
+      <div className="absolute inset-0 z-0">
+  <div className="w-full h-full bg-[url('/hero.jpg')] bg-cover bg-center brightness-50"></div>
+</div>
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           {/* Logo/Brand */}
           <div className="mb-2">
